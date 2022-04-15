@@ -291,7 +291,7 @@ def to_pystac_item(
         if epsg is not None:
             proj.apply(epsg=epsg, **_proj_fields(dataset.grids))
         elif wkt is not None:
-            proj.apply(wkt2=wkt, **_proj_fields(dataset.grids))
+            proj.apply(wkt2=wkt, epsg="", **_proj_fields(dataset.grids))
         else:
             raise STACError("Projection extension requires either epsg or wkt for crs.")
 
